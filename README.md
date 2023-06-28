@@ -1,2 +1,35 @@
-# EmbeddedUpperComputerFrameworkUsingSTM32
-Implementing OLED Chinese and English embedded management devices using STM32 is an engineering example
+# 基本信息
+
+本项目**基于STM32实现嵌入式用户控制中心**，使用oled屏显示**英文**及**汉字**。同时对芯片和ROM容量基本无需求，对嵌入式设备非常友好。
+
+用户界面实现多级菜单管控，通过串口与功能模块通信，下发控制指令，返回控制结果。
+
+
+
+# 应用环境
+
+### Software
+
+**IDE**：Keil MDK5
+
+**串口调试助手**：[随意]
+
+**取模软件**：LcmZimo/LcmSim
+
+### Hardware
+
+**Chips**：STM32F103cbt7 or other STM32F10X series
+
+**Screen**：1.3inch-SH1106-OLED
+
+**ROM**：Flash 32M enough
+
+**Board**：需要带串口、键盘等
+
+
+
+# 注意事项
+
+1. 屏幕可以显示中文，但不是保存全部字库，添加汉字需要在oled/Font.c里按照**GB2312**区码的后半个字节添加；
+2. 串口收发封装了**SLIP**协议，此协议验证不充分需要多测试，波特率**115200**；
+3. 按键有几列由于与烧写线复用，暂时关闭，修改对应的宏即可；
